@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Chuyển Đổi Tiền Tệ</h1>
+<input type="number" id="nhapvao">
+<h1>Từ</h1>
+<select id="so1" onchange="doiTien()">
+    <option value="VND">VND</option>
+    <option value="USD">USD</option>
+</select>
+<h2>Đến</h2>
+<select id="so2" onchange="doiTien()">
+    <option value="VND">VND</option>
+    <option value="USD">USD</option>
+</select> <br>
+
+<button onclick="doiTien()">Chuyển Đổi</button>
+
+<h1>Số tiền là: <span id="hienthi"></span></h1>
+
+<script>
+    function doiTien() {
+        let ketQua;
+        let nhapso=document.getElementById('nhapvao').value;
+        let nhap1=document.getElementById('so1').value;
+        let nhap2=document.getElementById('so2').value;
+        if (nhap1 === nhap2){
+            ketQua = nhapso;
+        }
+        else {
+            if (nhap1 ==="VND"){
+                ketQua = nhapso/23000;
+            }
+            else{
+                ketQua = nhapso*23000;
+            }
+        }
+        document.getElementById('hienthi').innerHTML=ketQua + " " +nhap2
+
+    }
+</script>
+
+</body>
+</html>

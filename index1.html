@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Chuyển đổi tiền tệ</h1>
+<table>
+    <tr>
+        <td><h3>Amount</h3></td>
+        <td><h3>From</h3></td>
+        <td><h3>To</h3></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+            <input type="number" id="nhapvao">
+        </td>
+        <td>
+            <select id="from" onchange="doiTien()">
+                <option value="VND">VND</option>
+                <option value="USD">USD</option>
+            </select>
+        </td>
+        <td>
+            <select id="to" onchange="doiTien()">
+            <option value="USD">USD</option>
+            <option value="VND">VND</option>
+            </select>
+        </td>
+        <td>
+            <button onclick="doiTien()">Đổi</button>
+        </td>
+    </tr>
+</table>
+<h1>Số tiền là: <span id="hienra"></span></h1>
+<script>
+    function doiTien() {
+        let nhaptien=document.getElementById('nhapvao').value;
+        let nhapfrom=document.getElementById('from').value;
+        let nhapto=document.getElementById('to').value;
+        if (nhapfrom===nhapto) {
+            document.getElementById('hienra').innerHTML = nhaptien
+        }
+        else {
+            if (nhapfrom==="VND"){
+                document.getElementById('hienra').innerHTML=nhaptien/23000;
+            }
+            else {
+                document.getElementById('hienra').innerHTML=nhaptien*23000;
+            }
+        }
+
+
+    }
+</script>
+
+</body>
+</html>
